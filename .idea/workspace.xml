@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f26bd172-cf15-4c39-b98a-9194a068a4ce" name="Default Changelist" comment="" />
+    <list default="true" id="f26bd172-cf15-4c39-b98a-9194a068a4ce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TomekCz.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_objects/registration_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/registration_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_cases/test01.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_cases/test01.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +20,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1VAjo4e55maQQUfLM2peT0fz4eB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -25,7 +35,28 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../LittleProjects/Cena Madery" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test01.test_1_2_create_account_customer_already_exists">
+  <component name="RunManager" selected="Python tests.pytest for test01.test_1_1_create_account_field_validation">
+    <configuration name="conftest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="WSB_PZZTO_MediaMarkt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/conftest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="registration_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WSB_PZZTO_MediaMarkt" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -47,6 +78,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test01.test_1_1_create_account_field_validation" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="WSB_PZZTO_MediaMarkt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test01.test_1_1_create_account_field_validation&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for test01.test_1_2_create_account_customer_already_exists" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="WSB_PZZTO_MediaMarkt" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -59,36 +105,6 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test01.test_1_2_create_account_customer_already_exists&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test01.test_1_2_create_account_db_doubles_validation" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="WSB_PZZTO_MediaMarkt" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test01.test_1_2_create_account_db_doubles_validation&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test01.test_prerequisites_check_registration_page_components" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="WSB_PZZTO_MediaMarkt" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test01.test_prerequisites_check_registration_page_components&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -109,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test01.test_1_1_create_account_field_validation" />
         <item itemvalue="Python tests.pytest for test01.test_1_2_create_account_customer_already_exists" />
-        <item itemvalue="Python tests.pytest for test01.test_1_2_create_account_db_doubles_validation" />
-        <item itemvalue="Python tests.pytest in test01.py" />
-        <item itemvalue="Python tests.pytest for test01.test_prerequisites_check_registration_page_components" />
         <item itemvalue="Python.registration_page" />
+        <item itemvalue="Python tests.pytest in test01.py" />
+        <item itemvalue="Python.conftest" />
       </list>
     </recent_temporary>
   </component>
@@ -143,30 +159,34 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578570187760">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578570187760" />
     <state x="719" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576753670233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="719" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1576753670233" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1577793498663">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1578564023013">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1577793498663" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1576795229247">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578564023013" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1578585161336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576795229247" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1576795229247">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578585161336" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1578585161336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576795229247" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1576795229247">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578585161336" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1578585161335">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576795229247" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1576795229247">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578585161335" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1578585161336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576795229247" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578585161336" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1576795229241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -187,9 +207,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576785099428" />
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1578063119446">
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1578660673699">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578063119446" />
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578660673699" />
   </component>
 </project>

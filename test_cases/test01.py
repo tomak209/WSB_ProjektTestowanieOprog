@@ -9,8 +9,9 @@ def test_prerequisites_check_registration_page_components(browser):
 
 def test_1_1_create_account_field_validation(browser):
     registration_page = RegistrationPage(browser)
-    pass
+    assert registration_page.empty_fields()
+    assert registration_page.invalid_data()
 
 def test_1_2_create_account_customer_already_exists(browser):
     registration_page = RegistrationPage(browser)
-    assert registration_page.verification_db_data_exists() is True
+    assert registration_page.db_data_exists()

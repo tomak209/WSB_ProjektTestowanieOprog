@@ -1,9 +1,9 @@
 home_url = "http://mediamarkt.pl"
 
-driver_name = 'firefox'
+driver_name = 'chrome'
 window_width = 1920
 window_height = 1080
-timeout = 3
+timeout = 10
 
 registration_url = "http://mediamarkt.pl/registration"
 registration_data = {"first_name": "Janusz",
