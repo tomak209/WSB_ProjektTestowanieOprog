@@ -52,7 +52,6 @@ class LoginPage(BasePage):
         self.browser.implicitly_wait(strings.timeout)
         icon = self.browser.find_element_by_xpath('//*[@id="js-accountInfo"]/span/a')
         log_out = self.browser.find_element_by_xpath('//*[@id="js-accountInfo"]/span[3]/a')
-        time.sleep(60)
         if icon != log_out:
             self.browser.execute_script("arguments[0].click();", self.button_log_out)
             return True

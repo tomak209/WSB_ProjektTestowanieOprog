@@ -3,7 +3,7 @@ home_url = "http://mediamarkt.pl"
 driver_name = 'chrome'
 window_width = 1920
 window_height = 1080
-timeout = 10
+timeout = 5
 
 registration_url = "http://mediamarkt.pl/registration"
 registration_data = {"first_name": "Janusz",
@@ -13,3 +13,38 @@ registration_data = {"first_name": "Janusz",
                       "phone": "501237742",
                       "zipcode": "54-438",
                       }
+
+registration_data_invalid_firstname = ["a",
+                                        "123",
+                                        ]
+registration_data_invalid_lastname = ["a",
+                                       "123",
+                                       ]
+registration_data_invalid_email = ["a",
+                                   "123",
+                                   "mail_bez_malpy.com",
+                                   "mail@bez_kropki_com",
+                                   ]
+registration_data_invalid_password = ["1234",
+                                      ]
+registration_data_invalid_phone = ["aaa",
+                                   ]
+registration_data_invalid_zipcode =["aa-bbb",
+                                    ]
+
+login_url = "https://mediamarkt.pl/login"
+login_data = {"email": "projektautomatyzacjitestowgr1@gmail.com",
+              "password": "321ewq#@!",
+              "email1": "Kiedys.sie.uda@gmail.com",
+              "email2": "@asdaad.com@",
+              "password1": "AlboiNie",
+              "password2": "a",
+              }
+
+search_data = { "1": "Monitor",
+               "2": "1234",
+               "3": "java",
+               "4": "!@#$%",
+               }
+
+save_box_url = "https://mediamarkt.pl/profile/save-box"
