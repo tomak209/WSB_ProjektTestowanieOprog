@@ -51,7 +51,9 @@ save_box_url = "https://mediamarkt.pl/profile/save-box"
 
 address_list_url = "https://mediamarkt.pl/profile/address/list"
 
-address_data = {"first_name": "Janusz",
+address_data = {"address_name": "Adres zapisany podczas testow",
+                "email": "projektautomatyzacjitestowgr1@gmail.com",
+                "first_name": "Janusz",
                 "last_name": "Autoamtyczny",
                 "street": "ulicaProjektowa",
                 "street_number": "69",
@@ -59,21 +61,13 @@ address_data = {"first_name": "Janusz",
                 "city": "Miasto",
                       }
 
-address_data_invalid_firstname = ["a",
-                                        "123",
-                                        ]
-address_data_invalid_lastname = ["a",
-                                       "123",
-                                       ]
 address_data_invalid_street = ["a",
+                                   ]
+address_data_invalid_street_number = []
+address_data_invalid_email = ["a",
                                    "123",
                                    "mail_bez_malpy.com",
                                    "mail@bez_kropki_com",
                                    ]
-address_data_invalid_street_number = ["1234",
-                                      ]
-
-addressdata_invalid_zipcode =["aa-bbb",
+address_data_invalid_zipcode =["aa-bbb",
                       ]
-address_data_invalid_city = ["aaa",
-                                   ]

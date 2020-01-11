@@ -44,10 +44,26 @@ class AddressListPage(BasePage):
         return self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/section[2]/div[1]/div[2]/a')
 
     @property
-    def input_address_name(self):
-        return self.browser.find_element_by_id(
-            "enp_customer_form_type_address_relation_name")
+    def button_edit_address(self):
+        return self.browser.find_element_by_xpath('//*[@id="address_7342382"]/div/div/div/div/div[2]/div[2]/a[1]')
 
+    @property
+    def input_address_name(self):
+        return self.browser.find_element_by_id("enp_customer_form_type_address_relation_name")
+
+    @property
+    def input_email(self):
+        return self.browser.find_element_by_id("enp_customer_form_type_address_relation_address_email")
+
+    @property
+    def input_email_info_short(self):
+        return self.browser.find_element_by_xpath(
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[5]/div[2]/em')
+
+    @property
+    def input_email_info_invalid(self):
+        return self.browser.find_element_by_xpath(
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[5]/div[2]/em')
 
     @property
     def radio_button_person(self):
@@ -109,12 +125,22 @@ class AddressListPage(BasePage):
             '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[11]/div[2]/em')
 
     @property
+    def input_street_info_invalid(self):
+        return self.browser.find_element_by_xpath(
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[11]/div[2]/em')
+
+    @property
     def input_street_number(self):
         return self.browser.find_element_by_id(
             "enp_customer_form_type_address_relation_address_houseNumber")
 
     @property
     def input_street_number_info_empty(self):
+        return self.browser.find_element_by_xpath(
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[12]/div[1]/div[2]/em')
+
+    @property
+    def input_street_number_info_invalid(self):
         return self.browser.find_element_by_xpath(
             '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[12]/div[1]/div[2]/em')
 
@@ -169,13 +195,15 @@ class AddressListPage(BasePage):
 
             self.browser.execute_script("arguments[0].click();", self.button_new_address)
             self.browser.implicitly_wait(strings.timeout)
+            self.input_address_name.clear()
+            self.input_email.clear()
             self.input_firstname.clear()
             self.input_lastname.clear()
             self.input_street.clear()
             self.input_street_number.clear()
             self.input_zipcode.clear()
             self.input_city.clear()
-
+            self.browser.execute_script("arguments[0].click();", self.button_save_address)
 
             for field in self.empty_field_prompts:
                 print(field, '=', self.empty_field_prompts[field], '?', end=" ")
@@ -188,43 +216,86 @@ class AddressListPage(BasePage):
             return True
         except Exception as error:
             print(error)
+            pass
 
-    def firstname_check(self):
+    def street_check(self):
+        try:
             print()
             print('Test 5.1.2 - 5.1.3')
 
-            for entry in strings.registration_data_invalid_firstname:
-                self.input_firstname.send_keys(entry)
+            self.browser.execute_script("arguments[0].click();", self.button_new_address)
+            self.browser.implicitly_wait(strings.timeout)
+            self.input_address_name.clear()
+            self.input_email.clear()
+            self.input_firstname.clear()
+            self.input_lastname.clear()
+            self.input_street.clear()
+            self.input_street_number.clear()
+            self.input_zipcode.clear()
+            self.input_city.clear()
+            self.browser.execute_script("arguments[0].click();", self.button_save_address)
+
+            for entry in strings.address_data_invalid_street:
+                self.input_street.send_keys(entry)
                 print(entry , end=" ")
-                if self.input_firstname_info_short.is_displayed() or self.input_firstname_info_invalid.is_displayed():
+                if self.input_street_info_short.is_displayed() or self.input_street_info_invalid.is_displayed():
                     print('True')
-                    self.input_firstname.clear()
+                    self.input_street.clear()
                 else:
-                    print('False')
+                    print('Test failed, screenshot saved: street_check_'+str(strings.address_data_invalid_street.index(entry))+'.png')
+                    self.browser.save_screenshot('street_check_'+str(strings.address_data_invalid_street.index(entry))+'.png')
                     return False
             return True
+        except Exception as error:
+            print(error)
 
-    def lastname_check(self):
+
+    def street_number_check(self):
             print()
-            print('Test 1.1.4 - 1.1.5')
+            print('Test 5.1.4')
+            self.browser.execute_script("arguments[0].click();", self.button_new_address)
+            self.browser.implicitly_wait(strings.timeout)
+            self.input_address_name.clear()
+            self.input_email.clear()
+            self.input_firstname.clear()
+            self.input_lastname.clear()
+            self.input_street.clear()
+            self.input_street_number.clear()
+            self.input_zipcode.clear()
+            self.input_city.clear()
+            self.browser.execute_script("arguments[0].click();", self.button_save_address)
 
-            for entry in strings.registration_data_invalid_lastname:
-                self.input_lastname.send_keys(entry)
+            for entry in strings.address_data_invalid_street_number:
+                self.input_street_number.send_keys(entry)
                 print(entry , end=" ")
-                if self.input_lastname_info_short.is_displayed() or self.input_lastname_info_invalid.is_displayed():
+                if self.input_street_number_info_invalid.is_displayed():
                     print('True')
-                    self.input_lastname.clear()
+                    self.input_street_number.clear()
                 else:
-                    print('False')
+                    print('Test failed, screenshot saved: street_number_check_'+str(strings.address_data_invalid_street_number.index(entry))+'.png')
+                    self.browser.save_screenshot('street_number_check_'+str(strings.address_data_invalid_street_number.index(entry))+'.png')
                     return False
             return True
 
     def email_check(self):
             print()
-            print('Test 1.1.6 - 1.1.9')
+            print('Test 5.1.5 - 5.1.9')
+            self.browser.execute_script("arguments[0].click();", self.button_new_address)
+            self.browser.implicitly_wait(strings.timeout)
+            self.input_address_name.clear()
+            self.input_email.clear()
+            self.input_firstname.clear()
+            self.input_lastname.clear()
+            self.input_street.clear()
+            self.input_street_number.clear()
+            self.input_zipcode.clear()
+            self.input_city.clear()
+            self.browser.execute_script("arguments[0].click();", self.button_save_address)
 
-            for entry in strings.registration_data_invalid_email:
+
+            for entry in strings.address_data_invalid_email:
                 self.input_email.send_keys(entry)
+                self.browser.execute_script("arguments[0].click();", self.button_save_address)
                 print(entry , end=" ")
                 if self.input_email_info_short.is_displayed() or self.input_email_info_invalid.is_displayed():
                     print('True')
@@ -234,41 +305,22 @@ class AddressListPage(BasePage):
                     return False
             return True
 
-    def password_check(self):
-            print()
-            print('Test 1.1.10')
-
-            for entry in strings.registration_data_invalid_password:
-                self.input_password.send_keys(entry)
-                print(entry , end=" ")
-                if self.input_password_info_short.is_displayed():
-                    print('True')
-                    self.input_password.clear()
-                else:
-                    print('False')
-                    return False
-            return True
-
-    def phone_check(self):
-            print()
-            print('Test 1.1.11')
-
-            for entry in strings.registration_data_invalid_phone:
-                self.input_phone.send_keys(entry)
-                print(entry , end=" ")
-                if self.input_phone_info_invalid.is_displayed():
-                    print('True')
-                    self.input_phone.clear()
-                else:
-                    print('False')
-                    return False
-            return True
-
     def zipcode_check(self):
             print()
-            print('Test 1.1.12')
+            print('Test 5.1.10')
+            self.browser.execute_script("arguments[0].click();", self.button_new_address)
+            self.browser.implicitly_wait(strings.timeout)
+            self.input_address_name.clear()
+            self.input_email.clear()
+            self.input_firstname.clear()
+            self.input_lastname.clear()
+            self.input_street.clear()
+            self.input_street_number.clear()
+            self.input_zipcode.clear()
+            self.input_city.clear()
+            self.browser.execute_script("arguments[0].click();", self.button_save_address)
 
-            for entry in strings.registration_data_invalid_zipcode:
+            for entry in strings.address_data_invalid_zipcode:
                 self.input_zipcode.send_keys(entry)
                 print(entry , end=" ")
                 if self.input_zipcode_info_invalid.is_displayed():
@@ -278,3 +330,73 @@ class AddressListPage(BasePage):
                     print('False')
                     return False
             return True
+
+    def new_address_save_check(self):
+        print()
+        print('Test 5.1.11')
+        self.browser.execute_script("arguments[0].click();", self.button_new_address)
+        self.browser.implicitly_wait(strings.timeout)
+        self.input_address_name.clear()
+        self.input_address_name.send_keys(strings.address_data["address_name"])
+        self.input_email.clear()
+        self.input_email.send_keys(strings.address_data["email"])
+        self.input_firstname.clear()
+        self.input_firstname.send_keys(strings.address_data["first_name"])
+        self.input_lastname.clear()
+        self.input_lastname.send_keys(strings.address_data["last_name"])
+        self.input_street.clear()
+        self.input_street.send_keys(strings.address_data["street"])
+        self.input_street_number.clear()
+        self.input_street_number.send_keys(strings.address_data["street_number"])
+        self.input_zipcode.clear()
+        self.input_zipcode.send_keys(strings.address_data["zipcode"])
+        self.input_city.clear()
+        self.input_city.send_keys(strings.address_data["city"])
+        self.browser.execute_script("arguments[0].click();", self.button_save_address)
+        time.sleep(strings.timeout)
+        text_save_new_address_success = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
+        print(text_save_new_address_success.text)
+        if text_save_new_address_success.text == 'Nowy adres dodany':
+            return True
+        else:
+            print('Test failed, screenshot saved: new_address_save_check.png')
+            self.browser.save_screenshot('new_address_save_check.png')
+            return False
+
+    def edit_address_no_change_check(self):
+        print()
+        print('Test 5.2.5')
+        self.browser.execute_script("arguments[0].click();", self.button_edit_address)
+        self.browser.implicitly_wait(strings.timeout)
+        self.browser.execute_script("arguments[0].click();", self.button_save_address)
+        time.sleep(strings.timeout)
+        text_edited_address_no_change = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
+        print(text_edited_address_no_change.text)
+        if text_edited_address_no_change.text == 'Twoje dane nie zostały zmienione.':
+            return True
+        else:
+            print('Test failed, screenshot saved: edited_address_no_change_check_fail.png')
+            self.browser.save_screenshot('edited_address_no_change_check_fail.png')
+            return False
+
+    def edit_address_save_check(self):
+        print()
+        print('Test 5.2.6')
+        self.browser.execute_script("arguments[0].click();", self.button_edit_address)
+        self.browser.implicitly_wait(strings.timeout)
+
+        self.input_street.clear()
+        self.input_street.send_keys(strings.address_data["street"])
+        self.input_street_number.clear()
+        self.input_street_number.send_keys(strings.address_data["street_number"])
+
+        self.browser.execute_script("arguments[0].click();", self.button_save_address)
+        time.sleep(strings.timeout)
+        text_save_edited_address_success = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
+        print(text_save_edited_address_success.text)
+        if text_save_edited_address_success.text == 'Twoje dane zostały zmienione.':
+            return True
+        else:
+            print('Test failed, screenshot saved: edited_address_save_fail.png')
+            self.browser.save_screenshot('edited_address_save_fail.png')
+            return False
