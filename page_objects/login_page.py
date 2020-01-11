@@ -64,7 +64,7 @@ class LoginPage(BasePage):
         self.browser.execute_script("arguments[0].click();", self.button_login)
         self.browser.implicitly_wait(strings.timeout)
         inccorect_data = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
-        time.sleep(20)
+        time.sleep(strings.timeout)
         if inccorect_data.text == 'Nieprawidłowy adres e-mail lub hasło':
             return True
         else:
@@ -75,8 +75,8 @@ class LoginPage(BasePage):
         self.input_password.send_keys(strings.login_data["password"])
         self.browser.execute_script("arguments[0].click();", self.button_login)
         self.browser.implicitly_wait(strings.timeout)
-        inccorect_data = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div/text()')
-        time.sleep(60)
+        inccorect_data = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
+        time.sleep(strings.timeout)
         if inccorect_data.text == "Nieprawidłowy adres e-mail lub hasło":
             return True
         else:
@@ -87,8 +87,8 @@ class LoginPage(BasePage):
         self.input_password.send_keys(strings.login_data["password1"])
         self.browser.execute_script("arguments[0].click();", self.button_login)
         self.browser.implicitly_wait(strings.timeout)
-        inccorect_data = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div/text()')
-        time.sleep(60)
+        inccorect_data = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
+        time.sleep(strings.timeout)
         if inccorect_data.text == "Nieprawidłowy adres e-mail lub hasło":
             return True
         else:
@@ -99,8 +99,8 @@ class LoginPage(BasePage):
         self.input_password.send_keys(strings.login_data["password2"])
         self.browser.execute_script("arguments[0].click();", self.button_login)
         self.browser.implicitly_wait(strings.timeout)
-        inccorect_data = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div/text()')
-        time.sleep(60)
+        inccorect_data = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
+        time.sleep(strings.timeout)
         if inccorect_data.text == "Nieprawidłowy adres e-mail lub hasło":
             return True
         else:

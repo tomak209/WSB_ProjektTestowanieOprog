@@ -1,3 +1,4 @@
+import logging
 import pytest
 from selenium import webdriver
 from config import strings
@@ -15,3 +16,10 @@ def browser():
     yield driver
     driver.quit()
 
+@pytest.fixture(scope="function")
+def logger(caplog):
+    caplog.set_level(logging.INFO)
+    return LOGGER
+
+
+LOGGER = logging.getLogger(__name__)

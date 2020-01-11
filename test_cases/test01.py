@@ -1,6 +1,8 @@
 from page_objects.registration_page import RegistrationPage
 from page_objects.login_page import LoginPage
 
+def test_logger(logger):
+    logger.info("Logowanie z poziomu testów")
 
 def test_prerequisites_check_registration_page_components(browser):
     registration_page = RegistrationPage(browser)

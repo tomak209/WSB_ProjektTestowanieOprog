@@ -6,174 +6,176 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from page_objects.base_page import BasePage
+from page_objects.login_page import LoginPage
 
-class RegistrationPage(BasePage):
+class AddressListPage(BasePage):
 
     def __init__(self, browser):
         self.browser = browser
-        self.browser.get(strings.registration_url)
+        self.browser.get(strings.address_list_url)
         self.browser.implicitly_wait(strings.timeout)
         self._logger = logging.getLogger(__name__)
 
+    @property
+    def input_login_email(self):
+        return self.browser.find_element_by_id("enp_customer_form_login_username")
+
+    @property
+    def input_login_password(self):
+        return self.browser.find_element_by_id("enp_customer_form_login_password")
+
+    @property
+    def button_login(self):
+        return self.browser.find_element_by_xpath('//*[@id="js-login"]/section/div/div[1]/div[2]/div[2]/form/div[4]/div/button')
+
     def page_opened(self):
-        text = self.browser.find_element_by_xpath('//*[@id="js-register"]/section/div/div/form/div/div[2]/div/p').text
-        if text == 'Załóż konto':
+        self.input_login_email.send_keys(strings.login_data["email"])
+        self.input_login_password.send_keys(strings.login_data["password"])
+        self.browser.execute_script("arguments[0].click();", self.button_login)
+        time.sleep(strings.timeout)
+        text = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div/ul/li[4]/span[2]').text
+        if text == 'Książka adresowa':
             return True
         else:
             return False
 
     @property
-    def radio_button_mrs(self):
-        return self.browser.find_element_by_id(
-            'js-salutation_misses')
+    def button_new_address(self):
+        return self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/section[2]/div[1]/div[2]/a')
 
     @property
-    def radio_button_mr(self):
+    def input_address_name(self):
         return self.browser.find_element_by_id(
-            'js-salutation_mister')
+            "enp_customer_form_type_address_relation_name")
+
+
     @property
-    def radio_button_info_empty(self):
-        return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[5]/div/label[2]/em')
+    def radio_button_person(self):
+        return self.browser.find_element_by_id(
+            'enp_customer_form_type_address_relation_address_addressType_0')
 
     @property
     def input_firstname(self):
         return self.browser.find_element_by_id(
-            "enp_customer_registration_form_type_address_firstName")
+            "enp_customer_form_type_address_relation_address_firstName")
 
     @property
     def input_firstname_info_empty(self):
         return self.browser.find_element_by_xpath(
-            '// *[@id="js-register"]/section/div/div/form/div/div[2]/div/div[6]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[9]/div[2]/em')
 
     @property
     def input_firstname_info_short(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[6]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[9]/div[2]/em')
 
     @property
     def input_firstname_info_invalid(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[6]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[9]/div[2]/em')
 
     @property
     def input_lastname(self):
         return self.browser.find_element_by_id(
-            "enp_customer_registration_form_type_address_lastName")
+            "enp_customer_form_type_address_relation_address_lastName")
 
     @property
     def input_lastname_info_empty(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[7]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[10]/div[2]/em')
 
     @property
     def input_lastname_info_short(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[7]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[10]/div[2]/em')
 
     @property
     def input_lastname_info_invalid(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[7]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[10]/div[2]/em')
 
     @property
-    def input_email(self):
+    def input_street(self):
+        return self.browser.find_element_by_id("enp_customer_form_type_address_relation_address_street")
+
+    @property
+    def input_street_info_empty(self):
+        return self.browser.find_element_by_xpath(
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[11]/div[2]/em')
+
+    @property
+    def input_street_info_short(self):
+        return self.browser.find_element_by_xpath(
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[11]/div[2]/em')
+
+    @property
+    def input_street_number(self):
         return self.browser.find_element_by_id(
-            "enp_customer_registration_form_type_email")
+            "enp_customer_form_type_address_relation_address_houseNumber")
 
     @property
-    def input_email_info_empty(self):
+    def input_street_number_info_empty(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[10]/div[2]/em')
-
-    @property
-    def input_email_info_short(self):
-        return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[10]/div[2]/em')
-
-    @property
-    def input_email_info_invalid(self):
-        return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[10]/div[2]/em')
-
-    @property
-    def input_password(self):
-        return self.browser.find_element_by_id(
-            "enp_customer_registration_form_type_plainPassword")
-
-    @property
-    def input_password_info_empty(self):
-        return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[11]/div[2]/em')
-
-    @property
-    def input_password_info_short(self):
-        return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[11]/div[2]/em')
-
-    @property
-    def input_phone(self):
-        return self.browser.find_element_by_id(
-            "enp_customer_registration_form_type_mobileNumber_number")
-
-    @property
-    def input_phone_info_empty(self):
-        return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[12]/div[2]/em')
-
-    @property
-    def input_phone_info_invalid(self):
-        return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[12]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[12]/div[1]/div[2]/em')
 
     @property
     def input_zipcode(self):
         return self.browser.find_element_by_id(
-            "enp_customer_registration_form_type_address_postcode")
+            "enp_customer_form_type_address_relation_address_postcode")
 
     @property
     def input_zipcode_info_empty(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[16]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[13]/div[2]/em')
 
     @property
     def input_zipcode_info_invalid(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-register"]/section/div/div/form/div/div[2]/div/div[16]/div[2]/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[13]/div[2]/em')
 
     @property
-    def checkbox_terms_and_conditions(self):
+    def input_city(self):
         return self.browser.find_element_by_id(
-            "enp_customer_registration_form_type_consentForm_consent_686_0")
+            "enp_customer_form_type_address_relation_address_city")
 
     @property
-    def checkbox_terms_and_conditions_info_empty(self):
+    def input_city_info_empty(self):
         return self.browser.find_element_by_xpath(
-            '//*[@id="js-checkboxes"]/label[1]/label/em')
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[14]/div[2]/em')
 
     @property
-    def button_save(self):
-        return self.browser.find_element_by_xpath('//*[@id="js-checkboxesRegister"]/div[1]/div[2]/div[2]/button')
+    def input_city_info_short(self):
+        return self.browser.find_element_by_xpath(
+            '//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[14]/div[2]/em')
+
+    @property
+    def button_save_address(self):
+        return self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/section[2]/div/div/form/div[16]/div[2]/input')
 
     @property
     def empty_field_prompts(self):
-        return {self.radio_button_info_empty.text: 'Wybierz zwrot',
-                self.input_firstname_info_empty.text: 'Podaj imię',
+        return {self.input_firstname_info_empty.text: 'Podaj imię',
                 self.input_lastname_info_empty.text: 'Podaj nazwisko',
-                self.input_email_info_empty.text: 'Podaj adres email',
-                self.input_password_info_empty.text: 'Podaj hasło',
-                self.input_phone_info_empty.text: 'Podaj numer telefonu',
+                self.input_street_info_empty.text: 'Podaj ulicę',
+                self.input_street_number_info_empty.text: 'Podaj numer domu',
                 self.input_zipcode_info_empty.text: 'Podaj kod pocztowy',
-                self.checkbox_terms_and_conditions_info_empty.text: 'To pole jest wymagane'
+                self.input_city_info_empty.text: 'Podaj nazwę miasta',
                 }
 
     def empty_fields(self):
         try:
             print()
-            print('Test 1.1.1')
+            print('Test 5.1.1')
 
-            self.browser.execute_script("arguments[0].click();", self.button_save)
+            self.browser.execute_script("arguments[0].click();", self.button_new_address)
             self.browser.implicitly_wait(strings.timeout)
+            self.input_firstname.clear()
+            self.input_lastname.clear()
+            self.input_street.clear()
+            self.input_street_number.clear()
+            self.input_zipcode.clear()
+            self.input_city.clear()
+
 
             for field in self.empty_field_prompts:
                 print(field, '=', self.empty_field_prompts[field], '?', end=" ")
@@ -189,7 +191,7 @@ class RegistrationPage(BasePage):
 
     def firstname_check(self):
             print()
-            print('Test 1.1.2 - 1.1.3')
+            print('Test 5.1.2 - 5.1.3')
 
             for entry in strings.registration_data_invalid_firstname:
                 self.input_firstname.send_keys(entry)
@@ -276,40 +278,3 @@ class RegistrationPage(BasePage):
                     print('False')
                     return False
             return True
-
-    def db_data_exists(self):
-        try:
-            print()
-            print('Test 1.2.1 - 1.2.2')
-
-            self.browser.execute_script("arguments[0].click();", self.radio_button_mr)
-            self.input_firstname.send_keys(strings.registration_data["first_name"])
-            self.input_lastname.send_keys(strings.registration_data["last_name"])
-            self.input_email.send_keys(strings.registration_data["email"])
-            self.input_password.send_keys(strings.registration_data["password"])
-            self.input_phone.send_keys(strings.registration_data["phone"])
-            self.input_zipcode.send_keys(strings.registration_data["zipcode"])
-            self.browser.execute_script("arguments[0].click();", self.checkbox_terms_and_conditions)
-            self.browser.execute_script("arguments[0].click();", self.button_save)
-            #self.browser.implicitly_wait(strings.timeout)
-            time.sleep(strings.timeout)
-
-            text_phone = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[3]/div')
-            text_email = self.browser.find_element_by_xpath('//*[@id="js-mainWrapper"]/main/div[4]/div')
-
-            fields = {text_phone.text: 'Podany numer telefonu istnieje już w bazie',
-                      text_email.text: 'Email '+strings.registration_data["email"]+' jest zajęty'
-                      }
-
-            for field in fields:
-                print(field, '=', fields[field], '?', end=" ")
-                if field == fields[field]:
-                    print('True')
-                else:
-                    print('False')
-                    self.browser.save_screenshot('db_data_exists_false.png')
-                    return False
-            return True
-        except Exception as error:
-            print(error)
-
