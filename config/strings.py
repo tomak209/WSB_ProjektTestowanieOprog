@@ -47,7 +47,7 @@ search_data = { "1": "Monitor",
                "4": "!@#$%",
                }
 
-save_box_url = "https://mediamarkt.pl/profile/save-box"
+save_box_url = "https://mediamarkt.pl/agd-male/odkurzacz-workowy-electrolux-epf61rr"
 
 address_list_url = "https://mediamarkt.pl/profile/address/list"
 
